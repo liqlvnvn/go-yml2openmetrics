@@ -5,24 +5,40 @@
 ## Usage
 
 There are 2 ways to use this service:
-1. Run it as local server.
-For this method you should have golang installed on your system.
-a. Preparing for the build
-`make init`
-b. Run the code.
-`make run`
-c. If you want to stop container, press `Ctrl-C` in your terminal.
+### Run it as local server.
 
-2. Run it as docker container.
-a. Preparing for the build
-`make init`
-b. Build a container.
-`make image`
-c. Run the container (it will run interactively in your terminal).
-`make start`
-d. If you want to stop container, press `Ctrl-C` in your terminal.
-e. If you want to delete container from your system after testing, please run:
-`make delimage`
+For this method you should have golang installed on your system.
+
+1. Preparing for the build
+
+```make init```
+
+2. Run the code.
+
+```make run```
+
+3. If you want to stop container, press `Ctrl-C` in your terminal.
+
+
+### Run it as docker container.
+ 
+1. Preparing for the build
+
+```make init```
+
+2. Build a container.
+
+```make image```
+
+3. Run the container (it will run interactively in your terminal).
+
+```make start```
+
+4. If you want to stop container, press `Ctrl-C` in your terminal.
+
+5. If you want to delete container from your system after testing, please run:
+
+```make delimage```
 
 ## Configuration
 
