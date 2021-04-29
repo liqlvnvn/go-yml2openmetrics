@@ -1,0 +1,6 @@
+- Using prometheus libraby to generate valid OpenMetrics with HandlerOpts{EnableOpenMetrics: true}
+- Use buffered string to concatenate output in GenerateOpenMetricsText function.
+- Error management: 1) add errors return to functions where needed; 2) grouping your errors into a separate module; 3) Moving error messages to configuration
+- Develop the Source abstraction layer to be able to use different types of yaml sources.
+- Adding some more comments
+- Testing
