@@ -4,7 +4,7 @@ import (
 	"io/ioutil"
 	"log"
 
-	"github.com/liqlvnvn/go-yaml2openmetrics/pkg/collector"
+	"github.com/liqlvnvn/go-yml2openmetrics/pkg/collector"
 )
 
 // Сreates a new entity

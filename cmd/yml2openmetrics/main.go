@@ -1,13 +1,14 @@
 package main
 
 import (
+	"fmt"
 	"log"
 
-	"github.com/liqlvnvn/go-yaml2openmetrics/pkg/collector/file"
-	"github.com/liqlvnvn/go-yaml2openmetrics/pkg/config"
-	"github.com/liqlvnvn/go-yaml2openmetrics/pkg/openmetrics"
-	"github.com/liqlvnvn/go-yaml2openmetrics/pkg/parser"
-	"github.com/liqlvnvn/go-yaml2openmetrics/pkg/server"
+	"github.com/liqlvnvn/go-yml2openmetrics/pkg/collector/file"
+	"github.com/liqlvnvn/go-yml2openmetrics/pkg/config"
+	"github.com/liqlvnvn/go-yml2openmetrics/pkg/openmetrics"
+	"github.com/liqlvnvn/go-yml2openmetrics/pkg/parser"
+	server "github.com/liqlvnvn/go-yml2openmetrics/pkg/server/prometheus"
 )
 
 func main() {
@@ -32,6 +33,7 @@ func main() {
 	}
 
 	om := openmetrics.GenerateOpenMetricsText(parsed)
-
-	server.ServeHTTP(*cfg, om)
+	fmt.Println(om)
+	// server.ServeHTTP(*cfg, om)
+	server.ServeHTTP(*cfg)
 }

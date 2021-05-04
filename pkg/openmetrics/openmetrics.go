@@ -3,7 +3,7 @@ package openmetrics
 import (
 	"fmt"
 
-	"github.com/liqlvnvn/go-yaml2openmetrics/pkg/parser"
+	"github.com/liqlvnvn/go-yml2openmetrics/pkg/parser"
 )
 
 // Temporary stub used in place of the library solution.
