@@ -5,6 +5,7 @@ init:
 	mkdir .bin
 
 build:
+	go mod tidy
 	go build -o ./.bin/yml2openmetrics ./cmd/yml2openmetrics/main.go
 
 run: build
