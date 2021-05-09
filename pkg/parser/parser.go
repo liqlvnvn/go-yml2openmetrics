@@ -11,6 +11,8 @@ type YAML struct {
 	Currensies []Field `yaml:"currencies"`
 }
 
+// type YAML map[interface{}]interface{}
+
 type Field struct {
 	Currency string `yaml:"name"`
 	Value    string `yaml:"value"`
