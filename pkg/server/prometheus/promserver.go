@@ -3,12 +3,11 @@ package promserver
 import (
 	"fmt"
 	"net/http"
-	"strconv"
 
 	"log"
 
 	"github.com/liqlvnvn/go-yml2openmetrics/pkg/config"
-	"github.com/liqlvnvn/go-yml2openmetrics/pkg/openmetrics"
+	openmetrics "github.com/liqlvnvn/go-yml2openmetrics/pkg/openmetrics/prometheus"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 )
@@ -30,6 +29,7 @@ func ServeHTTP(cfg config.Config, openMetrixList []openmetrics.Gauge) {
 	fmt.Printf("Starting the server... You can reach the output on %v%v%v\n", cfg.HostName, cfg.Port, cfg.MetricsPath)
 
 	reg := prometheus.NewRegistry()
+
 	for _, v := range openMetrixList {
 		// fmt.Println(v)
 		var gauge = prometheus.NewGauge(
@@ -37,11 +37,13 @@ func ServeHTTP(cfg config.Config, openMetrixList []openmetrics.Gauge) {
 				Namespace: v.Namespace,
 				Name:      v.Name,
 			})
+
 		reg.MustRegister(gauge)
 		// gauge.Set(v.Value.(float64))
-		if n, err := strconv.ParseFloat(v.Value.(string), 64); err == nil {
-			gauge.Set(n)
-		}
+		// if n, err := strconv.ParseFloat(v.Value, 64); err == nil {
+		// 	gauge.Set(n)
+		// }
+		gauge.Set(float64(v.Value))
 	}
 	// reg.MustRegister(gauge2)
 	// reg.MustRegister(gauge1)

@@ -6,12 +6,10 @@ import (
 	"gopkg.in/yaml.v2"
 )
 
-//YAML struct define structure to match yaml file.
+// YAML struct define structure to match yaml file.
 type YAML struct {
 	Currensies []Field `yaml:"currencies"`
 }
-
-// type YAML map[interface{}]interface{}
 
 type Field struct {
 	Currency string `yaml:"name"`

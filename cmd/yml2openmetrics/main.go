@@ -5,8 +5,8 @@ import (
 
 	"github.com/liqlvnvn/go-yml2openmetrics/pkg/collector/file"
 	"github.com/liqlvnvn/go-yml2openmetrics/pkg/config"
-	openmetrics "github.com/liqlvnvn/go-yml2openmetrics/pkg/openmetrics"
-	parser "github.com/liqlvnvn/go-yml2openmetrics/pkg/parser"
+	openmetrics "github.com/liqlvnvn/go-yml2openmetrics/pkg/openmetrics/prometheus"
+	parser "github.com/liqlvnvn/go-yml2openmetrics/pkg/parser/universal"
 	server "github.com/liqlvnvn/go-yml2openmetrics/pkg/server/prometheus"
 )
 
