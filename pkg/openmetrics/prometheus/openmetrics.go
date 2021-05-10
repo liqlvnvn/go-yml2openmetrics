@@ -1,7 +1,6 @@
 package openmetrics
 
 import (
-	"fmt"
 	"log"
 	"reflect"
 
@@ -18,11 +17,8 @@ var gaugeList []Gauge
 
 func GenerateOpenMetricsText(m parser.YAML) []Gauge {
 	for namespace, v := range m {
-		fmt.Printf("Key:%s ", namespace)
 		parseVal(v, namespace.(string))
 	}
-
-	fmt.Printf("Gauge LIST = %v\n", gaugeList)
 
 	return gaugeList
 }
@@ -34,18 +30,19 @@ func parseVal(v interface{}, namespace string) {
 	case reflect.Slice:
 		parseSlice(v.([]interface{}), namespace)
 	case reflect.Map:
-		fmt.Printf("\n")
 		if isMapWithValues(v.(parser.YAML)) {
 			var value int
-			var name string
-			for nm, vl := range v.(parser.YAML) {
 
+			var name string
+
+			for nm, vl := range v.(parser.YAML) {
 				if nm.(string) == "name" {
 					name = vl.(string)
 				} else if nm.(string) == "value" {
 					value = vl.(int)
 				}
 			}
+
 			gauge = Gauge{namespace, name, value}
 			gaugeList = append(gaugeList, gauge)
 		} else {
@@ -53,8 +50,6 @@ func parseVal(v interface{}, namespace string) {
 		}
 	default:
 		log.Fatal("Error while parsing YAML file.")
-		fmt.Printf("%v\n", v)
-
 	}
 }
 

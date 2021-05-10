@@ -7,7 +7,7 @@ import (
 	"github.com/liqlvnvn/go-yml2openmetrics/pkg/collector"
 )
 
-// Сreates a new entity
+// Сreates a new entity.
 func NewSource(filePath string) *collector.Source {
 	return &collector.Source{Path: filePath}
 }
